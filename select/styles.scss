@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.app {
+  padding-top: 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.wrap {
+  width: 500px;
+}
+
+$height: 46px;
+
+.select {
+  width: 100%;
+  position: relative;
+  z-index: 100;
+
+  &.open {
+    .select__dropdown {
+      display: block;
+    }
+
+    .select__input {
+      border-bottom: none;
+    }
+
+    .select__backdrop {
+      display: block;
+    }
+  }
+
+  &__input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: $height;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    cursor: pointer;
+  }
+
+  &__dropdown {
+    display: none;
+    position: absolute;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    top: $height;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 2px 3px 5px rgba(0,0,0,.3);
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__backdrop {
+    position: fixed;
+    display: none;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: transparent;
+  }
+
+  &__item {
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+
+    &.selected {
+      background-color: bisque;
+    }
+
+    &:hover {
+      background-color: #eee;
+      cursor: pointer;
+      transition: .15s background-color ease-in;
+    }
+  }
+
+}
