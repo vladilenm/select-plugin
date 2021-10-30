@@ -52,7 +52,8 @@ export class Select {
   clickHandler(event) {
     const {type} = event.target.dataset
 
-    if (type === 'input') {
+    if (type === 'input' || event.target.closest('.select__input')) {
+      // клик может прийтись не только по input, но и по содежащемуся внутри него span
       this.toggle()
     } else if (type === 'item') {
       const id = event.target.dataset.id
